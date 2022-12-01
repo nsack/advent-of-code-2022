@@ -11,9 +11,8 @@ def puzzle_solution(elves: list):
     """
     """
     calories = [sum(map(int, elf.split())) for elf in elves]
-    max_calories = max(calories)
 
-    return max_calories, sum(sorted(calories)[-3:])
+    return max(max_calories), sum(sorted(calories)[-3:])
 
 elves = parse_input()
 print(puzzle_solution(elves))
