@@ -1,12 +1,5 @@
 import string
 
-def split_string(str_input: str):
-    """
-    """
-    
-
-    return rucksack_1_items, rucksack_2_items
-
 def get_priority(item: str):
     """
     """
