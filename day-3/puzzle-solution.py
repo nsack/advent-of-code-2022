@@ -3,26 +3,9 @@ import string
 def split_string(str_input: str):
     """
     """
-    slice_point = len(str_input) // 2
-    rucksack_1_items = str_input[0:slice_point]
-    rucksack_2_items = str_input[slice_point:len(str_input)+1]
+    
 
     return rucksack_1_items, rucksack_2_items
-
-def get_intersect_items(rucksack_items: tuple):
-    """
-    """
-
-    result = set(rucksack_items[0]).intersection(rucksack_items[1])
-    
-    return result
-
-def get_intersect_groups(rucksack_group: tuple):
-    """
-    """
-    result = set(rucksack_group[0]).intersection(rucksack_group[1]).intersection(rucksack_group[2])
-
-    return result
 
 def get_priority(item: str):
     """
@@ -44,8 +27,10 @@ def puzzle_solution_part_1(file_name:str = "puzzle-input.txt"):
     total_priority = 0
     with open(file_name, "r") as f:
         for line in f:
-            rucksack_items = split_string(line)
-            duplicate_item = list(get_intersect_items(rucksack_items))
+            slice_point = len(line) // 2
+            rucksack_1_items = line[0:slice_point]
+            rucksack_2_items = line[slice_point:len(line)+1]
+            duplicate_item = list(set(rucksack_1_items).intersection(rucksack_2_items))
             total_priority += get_priority(item=duplicate_item)
 
     return total_priority
@@ -60,7 +45,7 @@ def puzzle_solution_part_2(file_name:str = "puzzle-input.txt"):
         rucksack_groups = list(zip(*[iter(rucksacks)]*3))
 
     for group in rucksack_groups:
-        duplicate_item =list(get_intersect_groups(rucksack_group=group))
+        duplicate_item =list(set(group[0]).intersection(group[1]).intersection(group[2]))
         total_priority += get_priority(item=duplicate_item)
 
     return total_priority
