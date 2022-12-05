@@ -36,7 +36,7 @@ with open("puzzle-input.txt", "r") as f:
 package_output = ""
 for stack in stacks:
     if len(stack) == 0:
-        pass
+        continue
     else:
         package_output += stack[-1]
 
@@ -86,7 +86,7 @@ with open("puzzle-input.txt", "r") as f:
 package_output = ""
 for stack in stacks_2:
     if len(stack) == 0:
-        pass
+        continue
     else:
         package_output += stack[-1]
 
