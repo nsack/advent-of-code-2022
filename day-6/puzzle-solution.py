@@ -2,8 +2,8 @@ def find_marker(input_str: str, marker_length: int):
     """
     """
     for i in range(len(input_str)):
-            if marker_length == len(set(input_str[i:i+marker_length])):
-                break
+        if marker_length == len(set(input_str[i:i+marker_length])):
+            break
 
     return i + marker_length
 
